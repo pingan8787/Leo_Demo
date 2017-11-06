@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机生成电话号码</title>
+    <style>
+        ul li,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        button {
+            border: 1px solid #09BB07;
+            background: #09BB07;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            outline: 0;
+        }
+        
+        .textBox {
+            width: 500px;
+            border: 1px solid #09BB07;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .btnBox {
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .textBox>p:first-child {
+            margin-top: 0;
+            font-size: 16px;
+        }
+        
+        textarea {
+            width: 0;
+            height: 0;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="textBox" style="text-align:center">
+        <p>手机号码生成器</p>
+        <div class="btnBox">
+            <button class="btn" value="">开始</button>
+            <button class="btn1" value="">停止</button>
+            <button class="btn2" value="">清空</button>
+        </div>
+        <p><span id="newNum"></span></p>
+        <button onclick="copyText()">复制最新号码</button>
+        <textarea id="input"></textarea>
+        <ul id="autoNum"></ul>
+    </div>
+
+    <script>
+        var liLength = document.getElementsByTagName("li");
+        var btnOn = document.getElementsByClassName("btn")[0];
+        var btnOn1 = document.getElementsByClassName("btn1")[0];
+        var btnOn2 = document.getElementsByClassName("btn2")[0];
+        var appedNode = document.getElementById('autoNum');
+        var endNum = 1000000; //控制生成多少个号码
+        var endTime = 2000; //生成间隔时间
+        var timer;
+
+        btnOn.addEventListener('click', function() {
+            console.log("function starT");
+            timer = setInterval(function() {
+                autoNum1();
+                autoStop(timer);
+            }, endTime);
+        }, false);
+
+        btnOn1.addEventListener('click', function() {
+            clearInterval(timer);
+            console.log(liLength.length);
+        }, false);
+
+        btnOn2.addEventListener('click', function() {
+            clearInterval(timer);
+            clearNum();
+        }, false);
+        //清楚所有的号码
+        function clearNum() {
+            appedNode.innerHTML = '';
+        }
+        //停止定时器
+        function autoStop(timer) {
+            if (liLength.length > endNum) {
+                clearInterval(timer);
+                console.log("到" + endNum + "了,STOP");
+            }
+
+        }
+        var html = '';
+        //自动生成电话号码
+        function autoNum1() {
+            var prefixArray = new Array("130", "131", "132", "133", "135", "137", "138", "170", "187", "189");
+            var prefix = prefixArray[parseInt(10 * Math.random())];
+            for (var j = 0; j < 8; j++) {
+                prefix = prefix + Math.floor(Math.random() * 10);
+            }
+            var newNode = document.getElementById('newNum');
+            html += `<li>${prefix}</li>`;
+            appedNode.innerHTML = html;
+            newNode.innerHTML = `<span>${prefix}</span>`
+        }
+        //复制文本功能
+        function copyText() {
+            var text = document.getElementById("newNum").innerText;
+            if (text) {
+                var input = document.getElementById("input");
+                input.value = text; // 修改文本框的内容
+                input.select(); // 选中文本
+                document.execCommand("copy"); // 执行浏览器复制命令
+                console.log("复制成功");
+            } else {
+                alert('请先点击开始按钮！')
+            }
+        }
+    </script>
+</body>
+
+</html>
