@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PK10 幸运抽</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.countdown.css" />
+    <script src="js/Scratch.js"></script>
+</head>
+
+<body onload="createCode()">
+    <div class="page-top">
+        <img src="./images/banner.png">
+    </div>
+    <div class="page-text">
+        <div class="left-img"></div>
+        <div class="center-text"><p>距离123456期开奖还有</p><div id="countdown"></div></div>
+        <div class="right-img"></div>
+    </div>
+    <div class="scratch_container">
+        <div class="scratch_viewport">
+            <div class="bid_num">
+                <canvas id="js-scratch-canvas"></canvas>
+                <div id="checkCode"></div>
+            </div>
+        </div>
+        <div class="bottom-btn">
+            <div class="btn-left">
+                <div onclick="window.location.reload()"></div>
+            </div>
+            <div class="btn-right">
+                <div onclick="window.location.reload()"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var scratch = new Scratch({
+            canvasId: 'js-scratch-canvas',
+            imageBackground: './images/12.png', //背景图片（刮开后呈现的图片）。
+            pictureOver: './images/clear-top.png', //前景图片。
+            cursor: {
+                x: '5', //Move position x。
+                y: '5' //Move position y。
+            },
+            radius: 20, //清除区域的半径。
+            nPoints: 1200,//清除区域的杂点数量。
+            percent: 90, //在清除多少区域之后清空canvas。
+            callback: function() {
+                // alert('本次推荐如下！');
+            },
+            pointSize: {
+                x: 7,
+                y: 7
+            }
+        });
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

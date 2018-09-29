@@ -1,0 +1,94 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height:100%;
+  background-color: #f6dd67;
+}
+.page-top{
+  width:100%;
+}
+.page-top image{
+  width:100%;
+  height:190px;
+}
+.jishi{
+  width:100%;
+  height:75px;
+  display: flex;
+}
+.jishi image{
+  flex:1;
+  height: 100%;
+}
+.jishi .time{
+  flex: 2;
+  height:100%;
+}
+.jishi .js-num{
+ display: block;
+ text-align: center;
+ font-size:16pt;
+ color:#e64340;
+ height:30px;
+ line-height:16px;
+}
+.time_round{
+    font-size:12pt;
+    text-align:center;
+    color:#353535;
+}
+/*刮刮卡*/
+.gua{
+  width:260px;
+  height:100px;
+  margin:0 auto;
+  text-align:center;
+  padding:50px 20px;
+  z-index:5;
+    background:url('http://112.74.110.109/webpage/res/images/clear2.png');
+    background-size:contain;
+}
+
+.code{
+  width:35px;
+  height: 35px;
+  display: inline-block;
+  margin:5px 8px;
+}
+.code1{background: url('http://112.74.110.109/webpage/res/images/1.png') no-repeat;background-size:cover;}
+.code2{background: url('http://112.74.110.109/webpage/res/images/2.png') no-repeat;background-size:cover;}
+.code3{background: url('http://112.74.110.109/webpage/res/images/3.png') no-repeat;background-size:cover;}
+.code4{background: url('http://112.74.110.109/webpage/res/images/4.png') no-repeat;background-size:cover;}
+.code5{background: url('http://112.74.110.109/webpage/res/images/5.png') no-repeat;background-size:cover;}
+.code6{background: url('http://112.74.110.109/webpage/res/images/6.png') no-repeat;background-size:cover;}
+.code7{background: url('http://112.74.110.109/webpage/res/images/7.png') no-repeat;background-size:cover;}
+.code8{background: url('http://112.74.110.109/webpage/res/images/8.png') no-repeat;background-size:cover;}
+.code9{background: url('http://112.74.110.109/webpage/res/images/9.png') no-repeat;background-size:cover;}
+.code10{background: url('http://112.74.110.109/webpage/res/images/10.png') no-repeat;background-size:cover;}
+
+.page-bottom{
+    position: relative;
+}
+.page-bottom canvas{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-135px;
+    margin-top:-80px;
+    z-index:1;
+    width:270px;
+    height:160px;
+    /*background:url('http://112.74.110.109/webpage/res/images/clear-top2.png');
+    background-size:contain;*/
+    /*display: none*/
+}
+.btn_grounp{  
+    width:300px;
+    margin: 0 auto;
+}
+.btn_view{
+    display: flex; 
+}
+.replay_btn,.copy_btn{
+    width: 140px;
+}

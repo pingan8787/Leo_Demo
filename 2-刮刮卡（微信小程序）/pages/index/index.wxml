@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="cont">
+    <view class="page-top">
+        <image src="http://112.74.110.109/webpage/res/images/banner.png"></image>
+    </view>
+    <view class="page-middle">
+        <view class="jishi">
+            <image src="http://112.74.110.109/webpage/res/images/jiantou1.png"></image>
+            <view class="time">
+            <view class="time_round">
+                距离 {{next_round}} 期开奖还有
+            </view>
+            <view>
+                <text class="js-num">
+                {{timeText}}
+                </text>
+            </view>
+            </view>
+            <image src="http://112.74.110.109/webpage/res/images/jiantou2.png"></image>
+        </view>
+    </view>
+    <view class="page-bottom">
+        <view class="gua">
+            <view class="code code{{item}}" wx:for="{{code}}" wx:key="item"></view>
+        </view>
+        <canvas
+            canvas-id="mainCanvas"  
+            disable-scroll="false"
+            bindtouchstart="touchStart"
+            bindtouchmove="touchMove"
+            bindtouchend="touchEnd"
+        >
+        </canvas>
+    </view>
+    <view class="btn_grounp">
+        <view class="btn_view">
+            <button class="replay_btn" bindtap="replay" type="primary" style="margin-top:50px;">刷新</button>
+            <button class="copy_btn" bindtap="copy" type="primary" style="margin-top:50px;">复制</button>
+        </view>   
+    </view>
+
+</view>
+<!--<navigator url="../test/test"type="primary" style="margin-top:50px;">测试页面</navigator>-->
+
